@@ -1,37 +1,55 @@
-## Welcome to GitHub Pages
+## Tele-Marketing Sales Prediction: Classification Problem
 
-You can use the [editor on GitHub](https://github.com/vaima75/Oasis/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This case-study was given by [Desicison Point](http://decisionpoint.in/)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Case-Study : Oasis  Problem Statement
 
-### Markdown
+Company X relies upon telemarketing to sell products.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Your project lead wants to utilize the opportunity and prepare a business development case for predictive modeling assignment. The lead has asked you to explore different available techniques and prepare a few slides on the technique which can be implemented on the business. The lead has also requested you to prepare the objective of the model, list additional data requirement and briefly describe the model- include steps and possible impact on the business.
 
-```markdown
-Syntax highlighted code block
+The column headers are self-explanatory, with the 'Sale' column indicating whether a sale was made or not when Agent X called the customer.
 
-# Header 1
-## Header 2
-### Header 3
+#### Data Description
+| Sno | Variables | Description |
+|----|----|----|
+| 1 | Call_ID | Customer Call ID|
+| 2 | Sale | Did Sale Happend? |
+| 3 | Agent_ID | ID of Agent |
+| 4 | Age | Age of Customer |
+| 5 | Product_ID | ID of Product |
+| 6 | Timezone | Timezone where call was made |
+| 7 | Phone_code | Customer's Phone Code |
+| 8 | First_Name | Customer's First Name |
+| 9 | Last_Name | Customer's First Name |
+| 10 | Area_Code | Location Code of Customer |
+| 11 | Gender | Customer's Gender |
+| 12 | Call_Count | Calls made to customer by Agent X |
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+### Methodology
 
-**Bold** and _Italic_ and `Code` text
+* Data - Preprocessing
+	- Feature Creation and Preparation
+	- Outlier Treatment
+	- Imputation Method
 
-[Link](url) and ![Image](src)
-```
+* Model Preparation and Algorithms
+	- Sampling Techniques
+		+ Over sampling
+		+ SMOTE
+		+ SMOTE Tomek 
+	- Modelling Algorithms
+		+ Random Forest
+		+ XGBOOST
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Results
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/vaima75/Oasis/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+| Mno | Model | Sampling Method | Accuracy | F1 Score | Recall | ROC-AUC | PR-AUC |
+|----|----|----|----|----|----|----|----|
+| 1 | RF | Upsample | 0.892 | 0.105 | 0.071 | 0.522 | 0.180 |
+| 2 | RF | SMOTE | 0.901 | 0.071 | 0.040 | 0.514 | 0.175 |
+| 3 | RF | SMOTE Tomek | 0.901 | 0.069 | 0.041 | 0.513 | 0.174 |
+| 4 | XGBOOST | Upsample | 0.618 | 0.189 | 0.495 | 0.562 | 0.328 |
+| 5 | XGBOOST | SMOTE | 0.909 | 0.030 | 0.016 | 0.506 | 0.213 |
+| 6 | XGBOOST | SMOTE Tomek | 0.909 | 0.030 | 0.016 | 0.506 | 0.213 |
